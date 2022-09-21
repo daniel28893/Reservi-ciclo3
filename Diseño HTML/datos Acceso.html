@@ -1,15 +1,21 @@
 <html>
 	<head>
 		<title>RESERVI</title>
+		<style>borde {border: 6px solid; border-collapse: collapse;}</style>
 	</head>
 	<body>
-		<h1><em>Ingrese sus datos de Acceso</em></h1>
-		<p>Usuario y Contraseña</p><br>
-		<form action="autenticar.html">
-		<label>Usuario: <input type="text" > </label><br><br>
-		<label>Contraseña: <input type="password"> </label><br><br>
-		<input type="submit"></input>
+		<div>
+			<h1><em>Ingrese sus datos de Acceso</em></h1>
+			<h2><p>Fomulario de autenticación</p></h2>
+			<p>Usuario y Contraseña</p><br>
+			<form action="index.html" method="post">
+				<label>Usuario: <input type="text" name="usuario"> </label><br><br>
+				<label>Contraseña: <input type="password" name="clave"> </label><br><br>
+				<input type="submit"></input>
 		
-		</form>
+			</form>
+		</div>
+		<a href="https://www.google.com/"> Olvidó su contraseña? </a>
+		
 	</body>
 </html>
