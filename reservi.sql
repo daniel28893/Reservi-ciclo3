@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema reservi
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema reservi
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `reservi` DEFAULT CHARACTER SET utf8 ;
 USE `reservi` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`habitacion`
+-- Table `reservi`.`habitacion`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`habitacion` (
+CREATE TABLE IF NOT EXISTS `reservi`.`habitacion` (
   `numero_habi` INT NOT NULL AUTO_INCREMENT,
   `tipo_habi` VARCHAR(45) NULL,
   `ubicacion` VARCHAR(45) NULL,
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Huesped`
+-- Table `reservi`.`Huesped`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Huesped` (
+CREATE TABLE IF NOT EXISTS `reservi`.`Huesped` (
   `id_hue` INT NOT NULL AUTO_INCREMENT,
   `nombre_hue` VARCHAR(45) NULL,
   `telefono_hue` VARCHAR(45) NULL,
@@ -40,9 +40,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuario`
+-- Table `reservi`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
+CREATE TABLE IF NOT EXISTS `reservi`.`usuario` (
   `id_usuario` INT NOT NULL,
   `nombre_usu` VARCHAR(45) NULL,
   `contraseña_usu` VARCHAR(45) NULL,
@@ -52,9 +52,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`reservar`
+-- Table `reservi`.`reservar`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`reservar` (
+CREATE TABLE IF NOT EXISTS `reservi`.`reservar` (
   `codigo_rese` INT NOT NULL,
   `numero_habi` INT NULL,
   `id_hue` INT NULL,
@@ -68,17 +68,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`reservar` (
   INDEX `reserva_usuario_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `reserva_habitacion`
     FOREIGN KEY (`numero_habi`)
-    REFERENCES `mydb`.`habitacion` (`numero_habi`)
+    REFERENCES `reservi`.`habitacion` (`numero_habi`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `reserva_huesped`
     FOREIGN KEY (`id_hue`)
-    REFERENCES `mydb`.`Huesped` (`id_hue`)
+    REFERENCES `reservi`.`Huesped` (`id_hue`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `reserva_usuario`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`usuario` (`id_usuario`)
+    REFERENCES `reservi`.`usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
