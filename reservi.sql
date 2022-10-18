@@ -1,1 +1,1 @@
-SELECT * FROM reservi.usuario;
+SELECT * FROM reservi.reservar;
